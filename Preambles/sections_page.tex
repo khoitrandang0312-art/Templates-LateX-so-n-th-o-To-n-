@@ -1,0 +1,195 @@
+% ==================================================
+% TRANG MO DAU CAC PHAN LON
+% Goi trong main.tex:
+%   \pagelythuyetvidu
+%   \pagebaitaptonghop
+% ==================================================
+
+% =========================
+% MAU SAC
+% =========================
+\definecolor{partNavy}{RGB}{18,32,56}
+\definecolor{partBlue}{RGB}{36,78,140}
+\definecolor{partLightBlue}{RGB}{218,228,242}
+\definecolor{partGold}{RGB}{210,170,70}
+\definecolor{partWhite}{RGB}{250,250,250}
+\definecolor{partText}{RGB}{12,24,44}
+
+\definecolor{partPink}{RGB}{220,80,140}
+
+% =========================
+% LENH TAO TRANG PHAN LON
+% #1: Slogan / dong phu tren
+% #2: Tieu de chinh
+% #3: Dong phu duoi
+% #4: Tac gia
+% #5: Nam / ghi chu
+% =========================
+\newcommand{\parttitlepage}[5]{%
+\clearpage
+\begin{titlepage}
+\newgeometry{left=2cm,right=2cm,top=2.5cm,bottom=2.5cm}
+\thispagestyle{empty}
+
+\begin{tikzpicture}[remember picture,overlay]
+
+% =========================
+% NEN CHINH
+% =========================
+\fill[partWhite]
+  (current page.south west) rectangle (current page.north east);
+
+% =========================
+% MANG HONG DAM BEN TRAI
+% =========================
+\fill[partPink]
+  (current page.south west)
+  -- ([xshift=5.7cm]current page.south west)
+  -- ([xshift=10.8cm]current page.north west)
+  -- (current page.north west)
+  -- cycle;
+
+% =========================
+% MANG XANH NHAT BEN PHAI
+% =========================
+\fill[partLightBlue]
+  ([xshift=8.7cm]current page.south west)
+  -- (current page.south east)
+  -- (current page.north east)
+  -- ([xshift=15.3cm]current page.north west)
+  -- cycle;
+
+% =========================
+% MANG TRANG CHEO O GIUA DE NOI CHU
+% =========================
+\fill[partWhite, opacity=0.94]
+  ([xshift=5.1cm]current page.south west)
+  -- ([xshift=8.2cm]current page.south west)
+  -- ([xshift=13.4cm]current page.north west)
+  -- ([xshift=10.3cm]current page.north west)
+  -- cycle;
+
+% =========================
+% VACH VANG TRANG TRI BEN DUOI TIEU DE
+% =========================
+\fill[partGold]
+  ([xshift=4.6cm,yshift=12.0cm]current page.south west)
+  rectangle
+  ([xshift=16.4cm,yshift=12.12cm]current page.south west);
+
+% =========================
+% CAC VONG TRON TRANG TRI
+% =========================
+\draw[partGold, line width=1.2pt, opacity=0.38]
+  ([xshift=17cm,yshift=-5cm]current page.north west) circle (3.2cm);
+
+\draw[partBlue, line width=1pt, opacity=0.22]
+  ([xshift=17cm,yshift=-5cm]current page.north west) circle (4.1cm);
+
+% =========================
+% WATERMARK CONG THUC
+% =========================
+\node[
+  text=partNavy,
+  opacity=0.055,
+  font=\fontsize{56}{64}\selectfont
+]
+at ([xshift=15.4cm,yshift=-4.9cm]current page.north west)
+{\(\displaystyle \binom{n}{k}\)};
+
+\node[
+  text=partNavy,
+  opacity=0.055,
+  font=\fontsize{44}{54}\selectfont
+]
+at ([xshift=14.7cm,yshift=5.1cm]current page.south west)
+{\(\displaystyle P(A\mid B)=\frac{P(A\cap B)}{P(B)}\)};
+
+% =========================
+% NOI DUNG CHU - CANH GIUA TOAN TRANG
+% =========================
+
+% Slogan
+\node[
+  anchor=center,
+  text=partText,
+  font=\fontsize{19}{26}\selectfont\scshape\bfseries,
+  align=center,
+  text width=16cm
+]
+at ([yshift=5.0cm]current page.center)
+{#1};
+
+% Tieu de chinh
+\node[
+  anchor=center,
+  text=partNavy,
+  font=\fontsize{40}{50}\selectfont\bfseries,
+  align=center,
+  text width=15.5cm
+]
+at ([yshift=1.45cm]current page.center)
+{\MakeUppercase{#2}};
+
+% Dong phu duoi
+\node[
+  anchor=center,
+  text=partText,
+  font=\fontsize{20}{28}\selectfont\bfseries,
+  align=center,
+  text width=15.5cm
+]
+at ([yshift=-2.15cm]current page.center)
+{#3};
+
+% Tac gia
+\node[
+  anchor=center,
+  text=partNavy,
+  font=\fontsize{23}{31}\selectfont\bfseries,
+  align=center,
+  text width=15cm
+]
+at ([yshift=-9.45cm]current page.center)
+{#4};
+
+% Nam / ghi chu
+\node[
+  anchor=center,
+  text=partText,
+  font=\fontsize{17}{24}\selectfont\bfseries,
+  align=center,
+  text width=15cm
+]
+at ([yshift=-10.35cm]current page.center)
+{#5};
+
+\end{tikzpicture}
+
+\null
+\restoregeometry
+\end{titlepage}
+\clearpage
+}
+
+% =========================
+% PAGE 1: LY THUYET VA VI DU MINH HOA
+% =========================
+\newcommand{\pagelythuyetvidu}{%
+\parttitlepage
+  {Tuyển tập câu hỏi Thông Minh và Tinh Tế}
+  {Lý thuyết và ví dụ minh họa}
+  {Biên soạn: Trần Đăng Bo}
+  {Trần Đăng Bo -- 2027}
+}
+
+% =========================
+% PAGE 2: BAI TAP TONG HOP
+% =========================
+\newcommand{\pagebaitaptonghop}{%
+\parttitlepage
+  {Tuyển tập câu hỏi Thông Minh và Tinh Tế}
+  {Bài tập tổng hợp}
+  {Biên soạn: Trần Đăng Bo}
+  {Trần Đăng Bo -- 2027}
+}

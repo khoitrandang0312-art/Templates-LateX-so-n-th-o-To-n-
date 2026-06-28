@@ -1,0 +1,327 @@
+% ==================================================
+% MACROS - LENH TU DINH NGHIA
+% ==================================================
+
+% ==================================================
+% BIEN QUAN LY DE THI
+% ==================================================
+\newcommand{\tendonvi}{DHPX PREP}
+\newcommand{\namthi}{2027}
+\newcommand{\monthi}{TOÁN}
+\newcommand{\thoigianlambai}{90 phút}
+\newcommand{\sotrangde}{0x}
+
+\newcommand{\sode}{1}
+\newcommand{\tendedethi}{ĐỀ ÔN LUYỆN HÀM SỐ}
+
+% =========================
+% MA DE
+% =========================
+\newcommand{\made}{0101}
+
+% =========================
+% CHE DO GIAO VIEN / HOC SINH
+% =========================
+\newif\ifgiaovien
+
+% Bat loi giai:
+\giaovientrue
+
+% An loi giai:
+%\giaovienfalse
+
+% Moi truong loi giai an/hien an toan
+\NewEnviron{loigiai}{%
+  \ifgiaovien
+    \par\noindent\textbf{Lời giải.}\par\noindent
+    \BODY
+    \par
+  \fi
+}
+
+% =========================
+% CAU HOI
+% =========================
+\newcounter{cau}
+
+\newcommand{\cau}{%
+  \stepcounter{cau}%
+  \par\vspace{3pt}%
+  \noindent\textbf{Câu \thecau. }%
+}
+
+% =========================
+% CAU TRA LOI TRAC NGHIEM
+% =========================
+\settasks{
+  label=\textbf{\Alph*.},
+  label-width=18pt,
+  item-indent=22pt,
+  label-offset=4pt,
+  column-sep=10pt,
+  after-item-skip=4pt,
+  after-skip=6pt
+}
+
+\newcommand{\bonpa}[4]{%
+\begin{tasks}(4)
+  \task #1
+  \task #2
+  \task #3
+  \task #4
+\end{tasks}
+}
+
+\newcommand{\haipa}[4]{%
+\begin{tasks}(2)
+  \task #1
+  \task #2
+  \task #3
+  \task #4
+\end{tasks}
+}
+
+\newcommand{\motcot}[4]{%
+\begin{tasks}(1)
+  \task #1
+  \task #2
+  \task #3
+  \task #4
+\end{tasks}
+}
+
+% =========================
+% PHAN DE THI
+% =========================
+\newcommand{\tenphanhientai}{}
+\newcommand{\phan}[2]{%
+  \vspace{6pt}
+  \renewcommand{\tenphanhientai}{#1}%
+  \par\noindent\textbf{PHẦN #1.} #2
+  \vspace{3pt}
+}
+
+% =========================
+% DUNG / SAI
+% =========================
+\newenvironment{dungsai}
+{%
+  \begin{enumerate}[
+    label=\textbf{\alph*)},
+    leftmargin=18pt,
+    itemsep=2pt,
+    topsep=2pt
+  ]
+}
+{%
+  \end{enumerate}
+}
+
+% =========================
+% TRA LOI NGAN
+% =========================
+%\newcommand{\shortanswerbox}[1]{%
+  %\hfill
+  %\fbox{%
+    %\parbox[c][0.6cm][c]{2.8cm}{%
+      %\centering
+     % \ifgiaovien
+        %#1%
+    %  \else
+    %    \phantom{#1}%
+    %  \fi
+%    }%
+%  }%
+%}
+
+\newcommand{\shortanswerline}[1]{%
+  \hfill
+  \ifgiaovien
+    \underline{\hspace{0.3cm}#1\hspace{0.3cm}}%
+  \else
+    \underline{\hspace{3cm}}%
+  \fi
+}
+
+\newcommand{\fourshortanswers}[4]{%
+\begin{center}
+\begin{tabular}{cccc}
+\textbf{a)} & \textbf{b)} & \textbf{c)} & \textbf{d)} \\[4pt]
+\fbox{\parbox[c][0.6cm][c]{2.2cm}{\centering \ifgiaovien #1\else\phantom{#1}\fi}} &
+\fbox{\parbox[c][0.6cm][c]{2.2cm}{\centering \ifgiaovien #2\else\phantom{#2}\fi}} &
+\fbox{\parbox[c][0.6cm][c]{2.2cm}{\centering \ifgiaovien #3\else\phantom{#3}\fi}} &
+\fbox{\parbox[c][0.6cm][c]{2.2cm}{\centering \ifgiaovien #4\else\phantom{#4}\fi}}
+\end{tabular}
+\end{center}
+}
+
+% =========================
+% O MA DE
+% =========================
+\newcommand{\omade}{%
+\begin{tikzpicture}
+\node[
+  draw,
+  minimum width=31mm,
+  minimum height=8mm,
+  inner sep=0pt
+]
+{\textbf{Mã đề: \made}};
+\end{tikzpicture}
+}
+
+% =========================
+% HEADER DE THI
+% =========================
+\newcommand{\tieudethi}{%
+\begin{center}
+\begin{tabularx}{\textwidth}{>{\centering\arraybackslash}X>{\centering\arraybackslash}X}
+\textbf{\tendonvi}
+&
+\textbf{KỲ THI TỐT NGHIỆP TRUNG HỌC PHỔ THÔNG NĂM \namthi}
+\\
+\textbf{\tendedethi}
+&
+\textbf{Môn thi: \monthi}
+\\
+\textit{(Đề thi có \sotrangde\ trang)}
+&
+\textit{Thời gian làm bài \thoigianlambai, không kể thời gian phát đề}
+\end{tabularx}
+\end{center}
+
+\vspace{4pt}
+
+\begin{tabularx}{\textwidth}{X r}
+\textbf{Họ, tên thí sinh:} \dotfill & \multirow{2}{*}{\omade} \\
+\textbf{Số báo danh:} \dotfill &
+\end{tabularx}
+
+\vspace{8pt}
+}
+
+% =========================
+% LENH TIEN ICH
+% =========================
+\newcommand{\chon}[1]{\textbf{Chọn #1.}}
+\newcommand{\dapanso}[1]{Đáp án: #1.}
+\newcommand{\hoac}{\quad\text{hoặc}\quad}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\vect}[1]{\overrightarrow{#1}}
+\newcommand{\dd}{\,\mathrm{d}}
+
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\paren}[1]{\left(#1\right)}
+\newcommand{\bracket}[1]{\left[#1\right]}
+\newcommand{\set}[1]{\left\{#1\right\}}
+
+
+
+
+
+
+
+% =========== % Lời giải ví dụ % ================ % 
+
+
+% Lời giải ví dụ này sẽ có cái ô màu xanh khá là chảnh chó ====))))) % 
+
+
+% ==================================================
+% LOI GIAI TOI GIAN - ZEN STYLE
+% ==================================================
+
+% =========================
+% LOI GIAI CHO VI DU MINH HOA
+% Luon hien, vi day la phan ly thuyet - vi du
+% =========================
+\NewEnviron{loigiaividu}{%
+  \par\noindent\textbf{Lời giải ví dụ.}\par\noindent
+  \BODY
+  \par
+}
+
+% =========================
+% LOI GIAI THAM KHAO CHO BAI TAP TONG HOP
+% An/hien theo che do giao vien
+% =========================
+\NewEnviron{loigiaithamkhao}{%
+  \ifgiaovien
+    \par\noindent\textbf{Lời giải.}\par\noindent
+    \BODY
+    \par
+  \fi
+}
+
+% =========================
+% DANH SACH LUU LOI GIAI THAM KHAO
+% =========================
+\newcommand{\danhsachloigiaithamkhao}{}
+\newcommand{\danhsachdapan}{}
+
+\newcounter{cauLG}
+
+\newcommand{\xoaloigiaithamkhao}{%
+  \global\let\danhsachloigiaithamkhao\empty
+  \global\let\danhsachdapan\empty
+  \setcounter{cauLG}{0}
+}
+
+% =========================
+% CAU HOI CO LOI GIAI GOM VE CUOI
+% #1: De bai
+% #2: Loi giai
+% =========================
+\newcommand{\caugiai}[2]{%
+  \cau #1%
+  \ifgiaovien
+    \gappto\danhsachloigiaithamkhao{%
+      \stepcounter{cauLG}%
+      \par\vspace{6pt}%
+      \noindent\textbf{Câu \thecauLG. }#1\par
+      \begin{loigiaithamkhao}
+      #2
+      \end{loigiaithamkhao}
+    }%
+  \fi
+}
+
+% =========================
+% IN TOAN BO LOI GIAI THAM KHAO
+% =========================
+\newcommand{\inloigiaithamkhao}{%
+  \ifgiaovien
+    \setcounter{cauLG}{0}%
+    \danhsachloigiaithamkhao
+  \fi
+}
+
+% =========================
+% QUAN LY DE THI (BAT DAU / KET THUC)
+% =========================
+\newcommand{\batdaude}[3]{%
+  % #1: So de, #2: Ten de, #3: Ma de
+  \renewcommand{\sode}{#1}%
+  \renewcommand{\tendedethi}{#2}%
+  \renewcommand{\made}{#3}%
+  \newpage
+  \setcounter{cau}{0}%
+  \xoaloigiaithamkhao
+  \tieudethi
+}
+
+\newcommand{\ketthucde}{%
+  \ifgiaovien
+    \newpage
+    \begin{center}
+      \LARGE\textbf{ĐÁP ÁN VÀ LỜI GIẢI CHI TIẾT ĐỀ \sode}
+    \end{center}
+    \inloigiaithamkhao
+  \fi
+}

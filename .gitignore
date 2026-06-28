@@ -1,0 +1,16 @@
+# Build output directory
+build/
+
+# IDE files
+.vscode/*
+!.vscode/settings.json
+
+# LaTeX auxiliary files (if generated in root by accident)
+*.aux
+*.log
+*.toc
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.pdf
