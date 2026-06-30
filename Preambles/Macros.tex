@@ -325,3 +325,41 @@
     \inloigiaithamkhao
   \fi
 }
+
+% ==================================================
+% BOC CAU HOI NGAU NHIEN TU NGAN HANG
+% ==================================================
+\ExplSyntaxOn
+\seq_new:N \g_nganhang_seq
+
+% Nạp ngân hàng câu hỏi
+\newcommand{\LoadNganHang}[1]{
+  \seq_gclear:N \g_nganhang_seq
+  \cs_set_eq:NN \caugiaiOriginal \caugiai
+  \renewcommand{\caugiai}[2]{
+    \seq_gput_right:Nn \g_nganhang_seq { \caugiaiOriginal{##1}{##2} }
+  }
+  \input{#1}
+  \cs_set_eq:NN \caugiai \caugiaiOriginal
+}
+
+% Lấy ngẫu nhiên N câu hỏi
+\newcommand{\LayCauHoiNgauNhien}[1]{
+  \seq_shuffle:N \g_nganhang_seq
+  \int_step_inline:nn { #1 } {
+    \int_compare:nNnTF { ##1 } > { \seq_count:N \g_nganhang_seq }
+      { } % Nếu số lượng câu yêu cầu lớn hơn số câu trong ngân hàng thì bỏ qua
+      { \seq_item:Nn \g_nganhang_seq { ##1 } }
+  }
+}
+
+% Đặt hạt giống để cố định đề (nếu cần)
+\newcommand{\DatHatGiongNgauNhien}[1]{
+  \sys_gset_rand_seed:n { #1 }
+}
+
+% Xoá ngân hàng
+\newcommand{\XoaNganHang}{
+  \seq_gclear:N \g_nganhang_seq
+}
+\ExplSyntaxOff

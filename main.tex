@@ -136,6 +136,16 @@ Câu trả lời ngắn nè. Tính giá trị của \(2+3\).
 Ta có \(2+3=5\).
 }
 
+\phan{IV}{Trắc nghiệm ngẫu nhiên từ ngân hàng.}
+\setcounter{cau}{0}
+
+% Bắt đầu lấy câu hỏi ngẫu nhiên từ file bank.tex
+% Đặt seed để đề không bị đổi ngẫu nhiên mỗi lần ấn biên dịch (có thể thay bằng số khác)
+\DatHatGiongNgauNhien{2026}
+\LoadNganHang{NganHang/bank.tex}
+\LayCauHoiNgauNhien{3}
+\XoaNganHang % Xoá sau khi dùng xong (tuỳ chọn)
+
 \ketthucde
 
 \end{document}
