@@ -98,6 +98,9 @@ Thay vì tự tay gõ từng câu, bạn có thể tạo một file ngân hàng 
 \XoaNganHang
 ```
 
+### 5. Xem Trước Ngân Hàng Câu Hỏi
+Vì các file ngân hàng (như `NganHang/bank.tex`) chỉ chứa mã thô của câu hỏi mà không có cấu trúc file LaTeX, bạn không thể biên dịch trực tiếp chúng. Để xem trước toàn bộ các câu hỏi có trong một ngân hàng, bạn có thể mở tệp `xem_ngan_hang.tex` và biên dịch. Tệp này đã được cấu hình sẵn lệnh `\input{NganHang/bank.tex}` để hiển thị tất cả các câu hỏi ra một file PDF duy nhất.
+
 ---
 
 ## ⚙️ Bật / Tắt Chế độ Giáo viên - Học sinh
