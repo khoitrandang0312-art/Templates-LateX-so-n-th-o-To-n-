@@ -47,7 +47,7 @@ Dự án đã được thiết lập sẵn thư mục `.vscode/settings.json`.
 Dự án cung cấp một hệ thống "Template Động" cực kỳ mạnh mẽ để thiết kế đề thi.
 
 ### 1. Bắt đầu và Kết thúc một Đề thi
-Mỗi đề thi sẽ được bọc trong 2 lệnh `\batdaude` và `\ketthucde`. Hệ thống sẽ tự động tạo Header đề thi, đánh số thứ tự từ đầu và gom toàn bộ lời giải để in ra ở cuối đề.
+Mỗi đề thi sẽ được bọc trong 2 lệnh `\batdaude` và `\ketthucde`. Hệ thống sẽ tự động tạo Header đề thi, tự động thêm nhãn **"ĐỀ SỐ X"** (với X là số đề) vào tiêu đề để phân biệt, đánh số thứ tự từ đầu và gom toàn bộ lời giải để in ra ở cuối đề.
 
 ```tex
 \batdaude{Số đề}{Tên đề thi}{Mã đề}
